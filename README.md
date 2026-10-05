@@ -26,12 +26,15 @@ that the findings below are based on. The conclusions do not change between runs
 - **Repeat within N days**: second order made within N days of the first one.
   Only customers with at least N days of data after their first order are compared,
   otherwise recent customers look like they never came back.
+- **Gross margin**: (`sale_price` minus product `cost`) divided by `sale_price`,
+  for items that are not Cancelled or Returned.
+- **Return rate**: Returned items divided by all items that were not Cancelled.
 
 ## Business questions
 1. How did revenue, orders and average order value change over time?
 2. Which acquisition channels bring the most valuable customers?
 3. How many customers make a second purchase, and does it change by cohort?
-4. Which product categories bring the most revenue and have the most returns? (TODO)
+4. Which product categories bring the most revenue and have the most returns?
 
 ## Key findings so far
 - Net revenue grew from about $65K in 2019 to about $1.87M in 2025 (full years).
@@ -49,8 +52,21 @@ that the findings below are based on. The conclusions do not change between runs
   365 days and 25.3% within 730 days, so no window shows the full picture.
 - About half of the January to September 2026 revenue growth comes from repeat orders
   (+133% orders) and about half from new customers (+69%).
+- Revenue is concentrated: the top 3 categories give 31.7% of net revenue
+  and the top 10 give 68.4%. Overall gross margin is about 51.9%.
+- The biggest categories by revenue are not always the most profitable.
+  Outerwear & Coats is first by revenue and by gross profit (margin 55.6%),
+  Jeans is second by revenue but has a margin of 46.4%, below average.
+  Highest margins are in smaller categories (Blazers & Jackets 62.1%,
+  Suits & Sport Coats 59.9%, Accessories 59.9%).
+- The overall return rate is 11.9% (about $1.06M of revenue). It is almost the same
+  in all categories (mostly 11.4% to 12.7%) and in all channels (11.4% to 13.3%).
+  Big categories lose more returned revenue only because they are big.
+- Display is slightly the weakest channel on buyer rate, revenue per buyer,
+  repeat rate and return rate, but all differences are within random noise.
 - Recommendation: calculate customer acquisition cost per channel and test
   a budget increase in one smaller channel before moving money from Search.
+  Rank product categories by gross profit, not only by revenue.
 
 ## Data quality notes and limitations
 - The dataset is synthetic and is regenerated between runs, so exact numbers can differ slightly.
@@ -60,6 +76,8 @@ that the findings below are based on. The conclusions do not change between runs
 - Growth of first-time customers jumps from about 32% to 69% in 2026. I checked order
   statuses as a possible reason and found no difference, so this is treated as a feature
   of the data and I do not draw conclusions from the growth rate.
+- Category names overlap (Suits and Suits & Sport Coats, Socks and Socks & Hosiery,
+  Pants and Pants & Capris) and their margins differ a lot, so I kept them as they are.
 - There is no marketing cost data, so CAC and ROI cannot be calculated.
 
 ## Repository structure
