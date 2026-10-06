@@ -1,4 +1,4 @@
--- 05_products_returns.sql
+-- 05_products_returns.sql 
 -- Net revenue = all order items except Cancelled and Returned
 -- Data cutoff: created_at < '2026-10-01'
 
