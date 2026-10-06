@@ -1,4 +1,4 @@
--- 4a. Share of customers who make a second order within 90 days of the first
+-- 4a. Share of customers who make a second order within 90 days of the first 
 
 -- result: 56,853 customers with a first order before 2026-07-03.
 -- 18,530 (32.6%) made a second order at some point, but only 3,629 (6.4%)
